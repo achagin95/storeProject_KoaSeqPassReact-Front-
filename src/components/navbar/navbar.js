@@ -5,7 +5,7 @@ import { navItems } from './navItems'
 
 //class NavBar extends Component {
 export const NavBar = () => {
-    //extends Component что значит, что дает))
+    //extends Component что значит, что дает) дает this
     //render() {
         return (
             <nav className="NavbarItems">

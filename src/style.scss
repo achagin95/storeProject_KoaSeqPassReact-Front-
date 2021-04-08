@@ -1,16 +1,31 @@
-.content {
+.wrapper {
     //display: flex;
     max-width: 1110px;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    //padding-left: 15px;
+    //padding-right: 15px;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas: "navb"
+                        "content"
+                        "footer";
+    //grid-template-columns: minmax(200px, 1110px);
+    //grid-template-columns: ;
+    grid-template-rows: 100px, 1fr, 50px;
 }
 
 .NavbarItems {
+    
+    grid-area: navb;
+
     ul {
         list-style-type: none;
-        margin: 0;
-        padding: 0;
+        //margin: 0;
+        //padding: 0;
         overflow: hidden;
         background-color: #333;
     }
@@ -20,7 +35,7 @@
     }
     
     li a {
-        display: block;
+        //display: block;
         color: white;
         text-align: center;
         padding: 14px 16px;
@@ -34,4 +49,12 @@
     // .active {
     //     background-color: #4CAF50;
     // }
+}
+
+.grid-content {
+    grid-area: content;
+}
+
+.footer {
+    grid-area: footer;
 }

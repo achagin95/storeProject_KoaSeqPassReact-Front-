@@ -1,18 +1,27 @@
-.content {
+.wrapper {
   max-width: 1110px;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "navb" "content" "footer";
+  -ms-grid-rows: 100px, 1fr, 50px;
+      grid-template-rows: 100px, 1fr, 50px;
 }
 
 .NavbarItems {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: navb;
   /* Change the link color to #111 (black) on hover */
 }
 
 .NavbarItems ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   background-color: #333;
 }
@@ -22,10 +31,21 @@
 }
 
 .NavbarItems li a {
-  display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.grid-content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: content;
+}
+
+.footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: footer;
 }
 /*# sourceMappingURL=style.css.map */
