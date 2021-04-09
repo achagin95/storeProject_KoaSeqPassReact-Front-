@@ -7,13 +7,14 @@ import { Footer } from './components/footer/footer';
 
 function App() {
   const routes = useRoutes()
+  const auth = true
 
   return (
     <div className="wrapper">
       <div className="grid">
         <BrowserRouter>
 
-          <NavBar />
+          <NavBar auth={auth}/>
 
           <div>
             {routes}

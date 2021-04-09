@@ -4,29 +4,48 @@ import { navItems } from './navItems'
 
 
 //class NavBar extends Component {
-export const NavBar = () => {
+export const NavBar = (props) => {
+    const auth = props.auth
     //extends Component что значит, что дает) дает this
     //render() {
-        return (
-            <nav className="NavbarItems">
-                <span className="navbar-logo">Store</span>
-                {/*можно попробовать в теге спан вместо h1*/}
-                <div className="menu-icon">
+    return (
+        <nav className="NavbarItems">
+            <span className="navbar-logo">Store</span>
+            {/*можно попробовать в теге спан вместо h1*/}
+            {/* <div className="menu-icon">
 
-                </div>
-                <ul>
-                    {navItems.map((item, index) => {
+                </div> */}
+            <ul>
+                {navItems.map((item, index) => {
+                    return (
+                        <li key={index}>
+                            <NavLink to={`${item.url}`}>
+                                {item.title}
+                            </NavLink>
+                        </li>
+                    )
+                })}
+            </ul>
+            <div>
+                {() => {
+                    if (auth) {
                         return (
-                            <li key={index}>
-                                <NavLink to={`${item.url}`}>
-                                    {item.title}
-                                </NavLink>
-                            </li>
+                            <div>
+                                <button>logout</button>
+                            </div>
                         )
-                    })}
-                </ul>
-            </nav>
-        )
+                    } else {
+                        return (
+                            <div>
+                                <button>login</button>
+                                <button>registration</button>
+                            </div>
+                        )
+                    }
+                }}
+            </div>
+        </nav>
+    )
     //}
 }
 
