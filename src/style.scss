@@ -18,22 +18,43 @@
     grid-template-rows: 100px, 1fr, 50px;
 }
 
-.NavbarItems {
-    
-    grid-area: navb;
+.NavBar {
 
+    grid-area: navb;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    background-color: rgb(116, 39, 218);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .NavbarItems {
+        grid-column: 1/2;
+    }
+    .NavBarButtons {
+        grid-column: 2/3;
+        margin-top: 16px;
+        text-align: right;
+        button {
+            width: 100px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 15px;
+            
+        }
+    }
     ul {
         list-style-type: none;
         //margin: 0;
         //padding: 0;
         overflow: hidden;
-        background-color: #333;
+        
     }
     
     li {
         float: left;
     }
-    
+        
     li a {
         //display: block;
         color: white;
@@ -41,7 +62,6 @@
         padding: 14px 16px;
         text-decoration: none;
     }
-    
     /* Change the link color to #111 (black) on hover */
     // li a:hover:not(.active) {
     //     background-color: rgb(173, 24, 24);
@@ -50,6 +70,7 @@
     //     background-color: #4CAF50;
     // }
 }
+
 
 .grid-content {
     grid-area: content;

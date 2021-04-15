@@ -13,24 +13,52 @@
       grid-template-rows: 100px, 1fr, 50px;
 }
 
-.NavbarItems {
+.NavBar {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: navb;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  background-color: #7427da;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* Change the link color to #111 (black) on hover */
 }
 
-.NavbarItems ul {
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #333;
+.NavBar .NavbarItems {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
 }
 
-.NavbarItems li {
+.NavBar .NavBarButtons {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  margin-top: 16px;
+  text-align: right;
+}
+
+.NavBar .NavBarButtons button {
+  width: 100px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+
+.NavBar ul {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.NavBar li {
   float: left;
 }
 
-.NavbarItems li a {
+.NavBar li a {
   color: white;
   text-align: center;
   padding: 14px 16px;
