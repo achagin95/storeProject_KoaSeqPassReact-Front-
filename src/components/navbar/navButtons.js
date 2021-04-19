@@ -1,5 +1,5 @@
 import React from 'react'
-//import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const NavButtons = (props) => {
     const auth = props.auth
@@ -13,7 +13,7 @@ export const NavButtons = (props) => {
     } else {
         return (
             <div className="NavBarButtons">
-                <button>login</button>
+                <button><NavLink to="/login">login</NavLink></button>
                 <button>registration</button>
             </div>
         )
