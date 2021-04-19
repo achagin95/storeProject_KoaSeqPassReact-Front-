@@ -5,6 +5,7 @@ import { NotFoundPage } from '../pages/notFoundPage'
 import { OrderPage } from '../pages/orderPage'
 import { ProfilePage } from '../pages/profilePage'
 import { StorePage } from '../pages/storePage'
+import {AuthPage} from '../pages/AuthPage'
 //import {navItems} from './navbar/navItems'
 
 
@@ -41,6 +42,9 @@ export const useRoutes = isAuth => {
                 </Route>
                 <Route path="/detail/:id" exact>
                     <DetailGoodPage />
+                </Route>
+                <Route path="/login" exact>
+                    <AuthPage />
                 </Route>
                 <Route path="/404" exact>
                     <NotFoundPage />
