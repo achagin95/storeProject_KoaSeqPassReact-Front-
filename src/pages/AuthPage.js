@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { AuthContext } from '../context/Auth.Context'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
@@ -9,11 +9,12 @@ import { useMessage } from '../hooks/message.hook'
 // "proxy": "http://localhost:5000",
 
 export const AuthPage = () => {
-    //const auth = useContext(AuthContext)
+    const auth = useContext(AuthContext)
     const { loading, request, error, clearError } = useHttp()
     const [form, setForm] = useState({
         email: '', password: ''
     })
+    const history = useHistory()
     const message = useMessage()
 
     useEffect(() => {
@@ -31,6 +32,8 @@ export const AuthPage = () => {
             console.log(form)
             const ctx = await request('/api/login', 'POST', { ...form })
             console.log(ctx)
+            auth.login(ctx.token)
+            history.push('/profile')
         } catch (error) {
             console.log('err: ', error.message)
         }

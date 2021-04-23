@@ -23,8 +23,10 @@ function App() {
           <BrowserRouter>
 
             <nav className="NavBar">
-              <NavBar auth={auth} />
-              <NavButtons auth={auth} />
+              {/* <NavBar auth={auth} />
+              <NavButtons auth={auth} /> */}
+              <NavBar />
+              <NavButtons />
             </nav>
 
 

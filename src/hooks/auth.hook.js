@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useState} from 'react'
+import jwtDecode from 'jwt-decode'
 
 export const useAuth = () => {
     const [token, setToken] = useState(null)
@@ -9,10 +10,14 @@ export const useAuth = () => {
         //посмотреть, как будет работать, после обернуть в useCallback
         setToken(jwtToken)
         setUserId(id)
+
+        const decoded = jwtDecode(jwtToken)
         
         localStorage.setItem('userData', JSON.stringify({
-            userId: id, token: jwtToken
+            userId: decoded.id, token: jwtToken, role: decoded.role
         }))
+        console.log("decoded: ", decoded)
+        console.log("localStorage: ", localStorage.userId, "jwt: ", localStorage.token)
     }, [])
 
     const logout = () => {

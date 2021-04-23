@@ -1,5 +1,5 @@
 .wrapper {
-    //display: flex;
+
     max-width: 1110px;
     margin: 0 auto;
     margin-left: auto;
@@ -19,58 +19,61 @@
 }
 
 .NavBar {
-
     grid-area: navb;
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 70% 30%;
     background-color: rgb(116, 39, 218);
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-
     .NavbarItems {
-        grid-column: 1/2;
+        grid-column: 1/2;  
     }
     .NavBarButtons {
         grid-column: 2/3;
-        margin-top: 16px;
-        text-align: right;
-        button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100px;
-            height: 40px;
-            margin-right: 10px;
+            height: 50px;
+            background: #70ceb6;
+            color: #fff;
+            text-decoration: none;
             border-radius: 15px;
-            
+            margin-right: 7px;
+            cursor: pointer;
         }
     }
+
     ul {
         list-style-type: none;
-        //margin: 0;
-        //padding: 0;
         overflow: hidden;
-        
     }
     
     li {
         float: left;
-    }
-        
-    li a {
-        //display: block;
+        a {
         color: white;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+        }
     }
-    /* Change the link color to #111 (black) on hover */
-    // li a:hover:not(.active) {
-    //     background-color: rgb(173, 24, 24);
-    // }
-    // .active {
-    //     background-color: #4CAF50;
-    // }
+    li:hover {
+            padding: 10px 12px;
+            border-radius: 20px;
+            background-color: rgb(2, 2, 68);
+    }
+    .activeItems {
+        padding: 10px 12px;
+        border-radius: 20px;
+        background-color: rgb(2, 2, 68);
+    } 
 }
-
 
 .grid-content {
     grid-area: content;
