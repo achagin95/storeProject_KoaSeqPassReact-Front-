@@ -77,6 +77,10 @@
 
 .grid-content {
     grid-area: content;
+    .good-item{
+        margin-bottom: 10px;
+        background-color: rgb(183, 183, 235);
+    }
 }
 
 .footer {

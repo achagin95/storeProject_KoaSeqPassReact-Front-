@@ -5,13 +5,14 @@ import { NotFoundPage } from '../pages/notFoundPage'
 import { OrderPage } from '../pages/orderPage'
 import { ProfilePage } from '../pages/profilePage'
 import { StorePage } from '../pages/storePage'
-import {AuthPage} from '../pages/AuthPage'
+import { AuthPage } from '../pages/AuthPage'
 import { RegisterPage } from '../pages/RegisterPage'
+import {CreatePage} from '../pages/CreatePage'
 //import {navItems} from './navbar/navItems'
 
 
 
-export const useRoutes = isAuth => {
+export const useRoutes = (isAuth, role) => {
     //позже добавить другие роуты если надо
     //главное добавить проверку на авторизованность
     if (isAuth) {
@@ -32,6 +33,9 @@ export const useRoutes = isAuth => {
                 <Route path="/404" exact>
                     <NotFoundPage />
                 </Route>
+                {role===1 && <Route path="/create" exact>
+                    <CreatePage />
+                </Route>}
                 <Redirect to="/404" />
             </Switch>
         )

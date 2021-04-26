@@ -10,13 +10,13 @@ import { useAuth } from './hooks/auth.hook';
 
 function App() {
 
-  const {token, login, logout, userId} = useAuth()
+  const {token, login, logout, userId, role} = useAuth()
   const auth = !!token
-  const routes = useRoutes(auth)
+  const routes = useRoutes(auth, role)
 
   return (
     <AuthContext.Provider value={{
-      token, login, logout, userId, auth
+      token, login, logout, userId, auth, role
     }}>
       <div className="wrapper">
         <div className="grid">

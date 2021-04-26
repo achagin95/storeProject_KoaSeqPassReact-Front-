@@ -28,12 +28,12 @@ export const AuthPage = () => {
 
     const loginHandler = async () => {
         try {
-            debugger
+            
             console.log(form)
             const ctx = await request('/api/login', 'POST', { ...form })
             console.log(ctx)
             auth.login(ctx.token)
-            history.push('/profile')
+            history.push('/')
         } catch (error) {
             console.log('err: ', error.message)
         }

@@ -26,7 +26,7 @@ export const RegisterPage = () => {
 
     const registerHandler = async () => {
         try {
-            debugger
+            
             console.log(form)
             const resp = await request('/api/register', 'POST', { ...form })
             message(`success: ${resp.success}; user email: ${resp.userEmail}`, )

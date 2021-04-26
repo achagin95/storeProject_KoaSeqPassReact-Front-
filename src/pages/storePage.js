@@ -1,33 +1,39 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
-import {GoodsList} from '../components/goods/GoodsList'
+import { GoodsList } from '../components/goods/GoodsList'
 
 export const StorePage = () => {
     const [goods, setGoods] = useState([])
     const { loading, request, error, clearError } = useHttp()
     const message = useMessage()
 
-    useEffect( () => {
-        
+
+
+    const getAllGoods = useCallback(async () => {
+        try {
+            const data = await request('/api/', 'GET', null, {})
+            setGoods(data)
+        } catch (error) {
+
+        }
+    }, [request])
+    // const removeItemHandler =  id => {
+    //     console.log(id)
+    // }
+
+    useEffect(() => {
         console.log('1')
         message(error)
         clearError()
     }, [error, clearError, message])
 
-    const getAllGoods = useCallback( async () => {
-        try {
-            const data = await request('/api/', 'GET', null, {})
-            setGoods(data)
-        } catch (error) {
-            
-        }
-    }, [request])
-
-    useEffect( () => {
+    useEffect(() => {
         console.log('2')
         getAllGoods()
     }, [getAllGoods])
+
+
 
 
     if (loading) {
@@ -37,8 +43,8 @@ export const StorePage = () => {
     }
     return (
         <div className="grid-content">
-            <GoodsList goodsList={goods} />
-            
+            <GoodsList goodsList={goods} getAllGoods={getAllGoods} />
+
 
         </div>
     )
