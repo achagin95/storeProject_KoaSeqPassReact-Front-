@@ -7,7 +7,9 @@ import { ProfilePage } from '../pages/profilePage'
 import { StorePage } from '../pages/storePage'
 import { AuthPage } from '../pages/AuthPage'
 import { RegisterPage } from '../pages/RegisterPage'
-import {CreatePage} from '../pages/CreatePage'
+import { CreatePage } from '../pages/CreatePage'
+//import { AuthContext } from '../context/Auth.Context'
+//import decode from 'jwt-decode'
 //import {navItems} from './navbar/navItems'
 
 
@@ -15,6 +17,11 @@ import {CreatePage} from '../pages/CreatePage'
 export const useRoutes = (isAuth, role) => {
     //позже добавить другие роуты если надо
     //главное добавить проверку на авторизованность
+    // const token = JSON.parse(localStorage.userData).token
+    // if (token) { const jwtDecode = decode(token) }
+    //const auth = useContext(AuthContext)
+
+
     if (isAuth) {
         return (
             <Switch>
@@ -33,7 +40,7 @@ export const useRoutes = (isAuth, role) => {
                 <Route path="/404" exact>
                     <NotFoundPage />
                 </Route>
-                {role===1 && <Route path="/create" exact>
+                {role === 1 && <Route path="/create" exact>
                     <CreatePage />
                 </Route>}
                 <Redirect to="/404" />

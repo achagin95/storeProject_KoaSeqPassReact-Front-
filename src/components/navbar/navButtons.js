@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/Auth.Context'
 export const NavButtons = (props) => {
     //const auth = props.auth
     const auth = useContext(AuthContext)
+    const idUser = auth.userId
     const history = useHistory()
     const logoutHandler = event =>{
         event.preventDefault()
@@ -15,6 +16,7 @@ export const NavButtons = (props) => {
     if (auth.token) {
         return (
             <div className="NavBarButtons">
+                <NavLink className="btn btn-cart" to={`/cart/${idUser}`}>Cart</NavLink>
                 <button className="btn" onClick={logoutHandler}>logout</button>
             </div>
         )

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../context/Auth.Context'
 import { navItems } from './navItems'
@@ -14,6 +14,14 @@ export const NavBar = (props) => {
         setActive(index)
         console.log('index: ', index)
     }
+    const checkActive = (location, match) => {
+        console.log(location)
+        console.log(match)
+        if (!location || !match) return false
+        const { pathname } = location
+        const { url } = match
+        return pathname === url ? true : false
+    }
 
 
     if (auth.token) {
@@ -28,21 +36,18 @@ export const NavBar = (props) => {
                 <ul>
                     {navItems.map((item, index) => {
                         return (
-                            <li key={index}
-                                className={active === index ? 'activeItems' : ''}
-                                onClick={() => selectActiveHandler(index)}
+                            <li key={index+item.title}
                             >
-                                <NavLink to={`${item.url}`}>
+                                <NavLink exact to={`${item.url}`} activeClassName='activeItems' isActive={checkActive}>
                                     {item.title}
                                 </NavLink>
                             </li>
                         )
                     })}
                     {auth.role === 1 &&
-                        <li key={3}
-                        className={active=== 3 ? 'activeItems' : ''}
-                        onClick={()=> selectActiveHandler(3)}>
-                            <NavLink to='/create'>
+                        <li key={3+"Create"}
+                            >
+                            <NavLink exact to='/create'>
                                 Create
                             </NavLink>
                         </li>}

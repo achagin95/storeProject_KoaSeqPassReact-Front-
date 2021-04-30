@@ -61,6 +61,11 @@
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
+        .activeItems {
+            padding: 10px 12px;
+            border-radius: 20px;
+            background-color: rgb(2, 2, 68);
+        }
         }
     }
     li:hover {
@@ -68,11 +73,26 @@
             border-radius: 20px;
             background-color: rgb(2, 2, 68);
     }
-    .activeItems {
+    a{
+        //значения падинга зачеркнуты,следовательно это значит что это css правило перекрыто
+        //почитать о приоритетах и наследовании css свойств
+        //попробовать усилить приоритет
+        .activeItems{
+        padding: 10px 12px;
+        border-radius: 20px;
+        background-color: rgb(2, 2, 68);
+    }}
+    .active {
         padding: 10px 12px;
         border-radius: 20px;
         background-color: rgb(2, 2, 68);
     } 
+    .activeItems {
+        padding: 10px 12px;
+        margin: 10px 12px;
+        border-radius: 20px;
+        background-color: rgb(2, 2, 68);
+    }
 }
 
 .grid-content {

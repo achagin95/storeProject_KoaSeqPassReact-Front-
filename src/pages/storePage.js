@@ -12,6 +12,7 @@ export const StorePage = () => {
 
     const getAllGoods = useCallback(async () => {
         try {
+            
             const data = await request('/api/', 'GET', null, {})
             setGoods(data)
         } catch (error) {
@@ -41,6 +42,13 @@ export const StorePage = () => {
             <div> Loading </div>
         )
     }
+    // if (goods.length===0)  {
+    //     return(
+    //         <div className="grid-content">
+    //             GoodsList is empty
+    //         </div>
+    //     )
+    // }
     return (
         <div className="grid-content">
             <GoodsList goodsList={goods} getAllGoods={getAllGoods} />

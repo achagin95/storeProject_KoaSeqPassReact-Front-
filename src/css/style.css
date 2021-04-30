@@ -84,7 +84,25 @@
   text-decoration: none;
 }
 
+.NavBar li a .activeItems {
+  padding: 10px 12px;
+  border-radius: 20px;
+  background-color: #020244;
+}
+
 .NavBar li:hover {
+  padding: 10px 12px;
+  border-radius: 20px;
+  background-color: #020244;
+}
+
+.NavBar a .activeItems {
+  padding: 10px 12px;
+  border-radius: 20px;
+  background-color: #020244;
+}
+
+.NavBar .active {
   padding: 10px 12px;
   border-radius: 20px;
   background-color: #020244;
@@ -92,6 +110,7 @@
 
 .NavBar .activeItems {
   padding: 10px 12px;
+  margin: 10px 12px;
   border-radius: 20px;
   background-color: #020244;
 }
