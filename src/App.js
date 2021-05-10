@@ -6,23 +6,22 @@ import { Footer } from './components/footer/footer';
 import { NavButtons } from './components/navbar/navButtons';
 import { AuthContext } from './context/Auth.Context'
 import { useAuth } from './hooks/auth.hook';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 //import { useJwt } from './hooks/jwt.hook';
 //import NavBar from './components/navbar/navbar'
 
 function App() {
 
-
   const { token, login, logout, userId, role } = useAuth()
-  let countForDebugg = useRef(0)
-  //попробовать вернуть const
+  const [countForDebugg, setCountForDebugg] = useState(0)
   const auth = !!token
   const routes = useRoutes(auth, role)
+
   useEffect(()=> {
-    countForDebugg.current++
+    setCountForDebugg(1)
   })
 
-  if (countForDebugg.current===0) {
+  if (countForDebugg===0) {
     return (
       <div>Loading</div>
     )
