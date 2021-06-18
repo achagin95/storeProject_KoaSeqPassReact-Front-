@@ -8,7 +8,6 @@ export const useAuth = () => {
     const [role, setRole] = useState(0)
 
     const login = useCallback((jwtToken) => {
-        //посмотреть, как будет работать, после обернуть в useCallback
         setToken(jwtToken)
         
         const decoded = jwtDecode(jwtToken)

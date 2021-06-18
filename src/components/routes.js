@@ -16,7 +16,7 @@ import { CreatePage } from '../pages/CreatePage'
 
 export const useRoutes = (isAuth, role) => {
     //позже добавить другие роуты если надо
-    //главное добавить проверку на авторизованность
+    //не добавил проверку на авторизованность
     // const token = JSON.parse(localStorage.userData).token
     // if (token) { const jwtDecode = decode(token) }
     //const auth = useContext(AuthContext)

@@ -19,9 +19,7 @@ export const StorePage = () => {
 
         }
     }, [request])
-    // const removeItemHandler =  id => {
-    //     console.log(id)
-    // }
+
 
     useEffect(() => {
         console.log('1')
